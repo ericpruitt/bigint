@@ -975,8 +975,7 @@ void bigint_cleanup(void)
 }
 
 /**
- * Initialize the state required by the library. This function automatically
- * registers a cleanup function via _atexit(3)_. This function is one of two in
+ * Initialize the state required by the library. This function is one of two in
  * this library that is not thread safe with the other being "bigint_cleanup".
  *
  * Return: 0 if the operation succeeds and a negative number if it fails. When
