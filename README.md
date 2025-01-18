@@ -26,7 +26,8 @@ API
 
 **Signature:** `int bigint_init(void)`
 
-**Description:** Initialize the state required by the library. This function is one of two in
+**Description:**
+Initialize the state required by the library. This function is one of two in
 this library that is not thread safe with the other being "bigint_cleanup".
 
 **Return:** 0 if the operation succeeds and a negative number if it fails. When
@@ -38,14 +39,16 @@ digit type. If this is not the case, this function will set "errno" to
 
 **Signature:** `void bigint_cleanup(void)`
 
-**Description:** Clean up any resources created by "bigint_init". This function is one of two
+**Description:**
+Clean up any resources created by "bigint_init". This function is one of two
 in this library that is not thread safe with the other being "bigint_init".
 
 ### bigint_free ###
 
 **Signature:** `void bigint_free(bigint_st *x)`
 
-**Description:** Release the resources associated with a big integer. This function is
+**Description:**
+Release the resources associated with a big integer. This function is
 guaranteed to preserve errno.
 
 **Arguments:**
@@ -55,7 +58,8 @@ guaranteed to preserve errno.
 
 **Signature:** `bigint_st *bigint_dup(bigint_st *x)`
 
-**Description:** Duplicate a big integer. The caller is responsible for calling "bigint_free"
+**Description:**
+Duplicate a big integer. The caller is responsible for calling "bigint_free"
 when the structure is no longer needed.
 
 **Arguments:**
@@ -70,7 +74,8 @@ duplicated in which case "errno" will be set appropriately.
 
 **Signature:** `void bigint_movi(bigint_st *dest, intmax_t src)`
 
-**Description:** Assign the value of a standard integer to an existing big integer.
+**Description:**
+Assign the value of a standard integer to an existing big integer.
 
 **Arguments:**
 - **dest:** Destination value.
@@ -80,7 +85,8 @@ duplicated in which case "errno" will be set appropriately.
 
 **Signature:** `void bigint_movui(bigint_st *dest, uintmax_t src)`
 
-**Description:** Assign the value of an unsigned integer to an existing big integer.
+**Description:**
+Assign the value of an unsigned integer to an existing big integer.
 
 **Arguments:**
 - **dest:** Destination value.
@@ -90,7 +96,8 @@ duplicated in which case "errno" will be set appropriately.
 
 **Signature:** `int bigint_mov(bigint_st *dest, bigint_st *src)`
 
-**Description:** Assign the value of one big integer to another.
+**Description:**
+Assign the value of one big integer to another.
 
 **Arguments:**
 - **dest:** Destination value.
@@ -102,7 +109,8 @@ duplicated in which case "errno" will be set appropriately.
 
 **Signature:** `bigint_st *bigint_from_int(intmax_t value)`
 
-**Description:** Create a big integer from a standard integer.
+**Description:**
+Create a big integer from a standard integer.
 
 **Arguments:**
 - **value:** Value of integer.
@@ -114,7 +122,8 @@ otherwise.
 
 **Signature:** `bigint_st *bigint_from_uint(uintmax_t value)`
 
-**Description:** Create a big integer from a standard unsigned integer.
+**Description:**
+Create a big integer from a standard unsigned integer.
 
 **Arguments:**
 - **value:** Value of integer.
@@ -128,7 +137,8 @@ otherwise.
 
 **Signature:** `bigint_st *bigint_div(bigint_st *q, bigint_st **r, bigint_st *n, bigint_st *d)`
 
-**Description:** Divide one big integer by another.
+**Description:**
+Divide one big integer by another.
 
 **Arguments:**
 - **q:** Quotient; pointer to the output destination. If this is NULL, a heap
@@ -146,7 +156,8 @@ used to indicate division by zero.
 
 **Signature:** `bigint_st *bigint_add(bigint_st *dest, bigint_st *a, bigint_st *b)`
 
-**Description:** Add two big integers.
+**Description:**
+Add two big integers.
 
 **Arguments:**
 - **dest:** Pointer to the output destination. If this is NULL, a heap pointer
@@ -160,7 +171,8 @@ used to indicate division by zero.
 
 **Signature:** `bigint_st *bigint_sub(bigint_st *dest, bigint_st *a, bigint_st *b)`
 
-**Description:** Subtract one big integer from another.
+**Description:**
+Subtract one big integer from another.
 
 **Arguments:**
 - **out:** Pointer to the output destination. If this is NULL, a heap pointer is
@@ -174,7 +186,8 @@ used to indicate division by zero.
 
 **Signature:** `bigint_st *bigint_mul(bigint_st *dest, bigint_st *a, bigint_st *b)`
 
-**Description:** Multiple two big integers.
+**Description:**
+Multiple two big integers.
 
 **Arguments:**
 - **dest:** Pointer to the output destination. If this is NULL, a heap pointer
@@ -189,7 +202,8 @@ otherwise.
 
 **Signature:** `bigint_st *bigint_shli(bigint_st *dest, bigint_st *x, size_t n)`
 
-**Description:** Perform a left shift on a big integer with the number of bits specified as
+**Description:**
+Perform a left shift on a big integer with the number of bits specified as
 a standard integer.
 
 **Arguments:**
@@ -202,7 +216,8 @@ a standard integer.
 
 **Signature:** `bigint_st *bigint_shl(bigint_st *dest, bigint_st *x, bigint_st* n)`
 
-**Description:** Perform a left shift with big integers.
+**Description:**
+Perform a left shift with big integers.
 
 **Arguments:**
 - **x:** A big integer.
@@ -214,7 +229,8 @@ a standard integer.
 
 **Signature:** `bigint_st *bigint_shri(bigint_st *dest, bigint_st *x, size_t n)`
 
-**Description:** Perform a right shift on a big integer with the number of bits specified as
+**Description:**
+Perform a right shift on a big integer with the number of bits specified as
 a standard integer.
 
 **Arguments:**
@@ -227,7 +243,8 @@ a standard integer.
 
 **Signature:** `bigint_st *bigint_shr(bigint_st *dest, bigint_st *x, bigint_st* n)`
 
-**Description:** Perform a right shift with big integers.
+**Description:**
+Perform a right shift with big integers.
 
 **Arguments:**
 - **x:** A big integer.
@@ -239,7 +256,8 @@ a standard integer.
 
 **Signature:** `bigint_st *bigint_mod(bigint_st *r, bigint_st *n, bigint_st *d)`
 
-**Description:** Compute the module of one integer by another.
+**Description:**
+Compute the module of one integer by another.
 
 **Arguments:**
 - **r:** Remainder; pointer to the output destination. If this is NULL, a heap
@@ -256,7 +274,8 @@ used to indicate division by zero.
 
 **Signature:** `bigint_st *bigint_pow(bigint_st* dest, bigint_st *base, bigint_st* exp)`
 
-**Description:** Compute the value of a number raise to an exponent.
+**Description:**
+Compute the value of a number raise to an exponent.
 
 **Arguments:**
 - **base:** The base big integer.
@@ -269,7 +288,8 @@ if it fails. If the exponent is less than 0, "errno" is set to `EDOM`.
 
 **Signature:** `bigint_st *bigint_abs(bigint_st *dest, bigint_st *x)`
 
-**Description:** Compute the absolute value of a big integer.
+**Description:**
+Compute the absolute value of a big integer.
 
 **Arguments:**
 - **dest:** Output destination. If this is NULL, it will be allocated.
@@ -281,7 +301,8 @@ if it fails. If the exponent is less than 0, "errno" is set to `EDOM`.
 
 **Signature:** `int bigint_inc(bigint_st *x)`
 
-**Description:** Increment the value of a big integer by 1.
+**Description:**
+Increment the value of a big integer by 1.
 
 **Arguments:**
 - **x:** A big integer.
@@ -292,7 +313,8 @@ if it fails. If the exponent is less than 0, "errno" is set to `EDOM`.
 
 **Signature:** `int bigint_dec(bigint_st *x)`
 
-**Description:** Decrement the value of a big integer by 1.
+**Description:**
+Decrement the value of a big integer by 1.
 
 **Arguments:**
 - **x:** A big integer.
@@ -305,7 +327,8 @@ if it fails. If the exponent is less than 0, "errno" is set to `EDOM`.
 
 **Signature:** `uintmax_t bigint_toui(bigint_st *x)`
 
-**Description:** Convert a big integer to a standard unsigned integer. If the big integer
+**Description:**
+Convert a big integer to a standard unsigned integer. If the big integer
 cannot be represented as an uintmax_t value, "errno" will be set to
 `ERANGE`.
 
@@ -318,7 +341,8 @@ cannot be represented as an uintmax_t value, "errno" will be set to
 
 **Signature:** `intmax_t bigint_toi(bigint_st *x)`
 
-**Description:** Convert a big integer to a standard integer. If the big integer cannot be
+**Description:**
+Convert a big integer to a standard integer. If the big integer cannot be
 represented as an intmax_t value, "errno" will be set to `ERANGE`.
 
 **Arguments:**
@@ -330,7 +354,8 @@ represented as an intmax_t value, "errno" will be set to `ERANGE`.
 
 **Signature:** `double bigint_tod(bigint_st *x)`
 
-**Description:** Convert a big integer to a double. If the big integer cannot be represented
+**Description:**
+Convert a big integer to a double. If the big integer cannot be represented
 as a double, generally because the exponent is too large, "errno" will be
 set to `EOVERFLOW` and a value representing infinity is returned. The
 resulting value will be a truncated representation of the integer if it
@@ -345,7 +370,8 @@ exceeds the precision of the double's mantissa.
 
 **Signature:** `bigint_st *bigint_strtobif(const char *str, const char **fraction)`
 
-**Description:** Convert a string to a big integer. This function supports hexadecimal
+**Description:**
+Convert a string to a big integer. This function supports hexadecimal
 indicated by the prefix "0x" and "0X"; octal octal by "0o", "0O" or simply
 "0"; and binary by "0b" and "0B". Otherwise, the string is parsed as a
 decimal value. Decimal parsing supports scientific notation with integer
@@ -364,12 +390,14 @@ coefficients and positive exponents like "1e100" and "12E3".
 
 **Signature:** `bigint_st *bigint_strtobi(const char *str)`
 
-**Description:** 
+**Description:**
+
 ### bigint_snbprint ###
 
 **Signature:** `int bigint_snbprint(char *buf, size_t buflen, bigint_st *x, unsigned char base)`
 
-**Description:** Write a binary, octal, decimal or hexadecimal representation of a big
+**Description:**
+Write a binary, octal, decimal or hexadecimal representation of a big
 integer to a string buffer.
 
 **Arguments:**
@@ -387,7 +415,8 @@ function will return negative value in that scenario.
 
 **Signature:** `int bigint_snprint(char *buf, size_t buflen, bigint_st *x)`
 
-**Description:** Write the decimal representation of a big integer to a string buffer.
+**Description:**
+Write the decimal representation of a big integer to a string buffer.
 
 **Arguments:**
 - **buf:** The destination buffer.
@@ -403,7 +432,8 @@ function will return negative value in that scenario.
 
 **Signature:** `char *bigint_tostrb(bigint_st *x, unsigned char base)`
 
-**Description:** Get a binary, octal, decimal or hexadecimal representation of a big
+**Description:**
+Get a binary, octal, decimal or hexadecimal representation of a big
 integer.
 
 **Arguments:**
@@ -419,7 +449,8 @@ the caller must free. If the operation fails, NULL is returned.
 
 **Signature:** `char *bigint_tostr(bigint_st *x)`
 
-**Description:** Get the decimal representation of a big integer.
+**Description:**
+Get the decimal representation of a big integer.
 
 - **x:** A big integer.
 
@@ -432,7 +463,8 @@ the caller must free. If the operation fails, NULL is returned.
 
 **Signature:** `int bigint_cmp(const bigint_st *a, const bigint_st *b)`
 
-**Description:** Compare two big integers to determine if the first argument is greater than,
+**Description:**
+Compare two big integers to determine if the first argument is greater than,
 equal to or less than the second argument.
 
 **Arguments:**
@@ -446,7 +478,8 @@ and a negative number if "a" is less than "b".
 
 **Signature:** `bool bigint_eqz(const bigint_st *x)`
 
-**Description:** Return a value indicating whether the argument equals zero.
+**Description:**
+Return a value indicating whether the argument equals zero.
 
 **Arguments:**
 - **x:** Big integer.
@@ -457,7 +490,8 @@ and a negative number if "a" is less than "b".
 
 **Signature:** `bool bigint_nez(const bigint_st *x)`
 
-**Description:** Return a value indicating whether the argument is not equal zero.
+**Description:**
+Return a value indicating whether the argument is not equal zero.
 
 **Arguments:**
 - **x:** Big integer.
@@ -468,7 +502,8 @@ and a negative number if "a" is less than "b".
 
 **Signature:** `bool bigint_ltz(const bigint_st *x)`
 
-**Description:** Return a value indicating whether the argument is less than zero.
+**Description:**
+Return a value indicating whether the argument is less than zero.
 
 **Arguments:**
 - **x:** Big integer.
@@ -479,7 +514,8 @@ and a negative number if "a" is less than "b".
 
 **Signature:** `bool bigint_lez(const bigint_st *x)`
 
-**Description:** Return a value indicating whether the argument is less than or equal to
+**Description:**
+Return a value indicating whether the argument is less than or equal to
 zero.
 
 **Arguments:**
@@ -491,7 +527,8 @@ zero.
 
 **Signature:** `bool bigint_gtz(const bigint_st *x)`
 
-**Description:** Return a value indicating whether the argument is greater than zero.
+**Description:**
+Return a value indicating whether the argument is greater than zero.
 
 **Arguments:**
 - **x:** Big integer.
@@ -502,7 +539,8 @@ zero.
 
 **Signature:** `bool bigint_gez(const bigint_st *x)`
 
-**Description:** Return a value indicating whether the argument is greater than or equal to
+**Description:**
+Return a value indicating whether the argument is greater than or equal to
 zero.
 
 **Arguments:**
@@ -514,7 +552,8 @@ zero.
 
 **Signature:** `bigint_st *bigint_max(bigint_st *a, bigint_st *b)`
 
-**Description:** Return the greatest of two big integers.
+**Description:**
+Return the greatest of two big integers.
 
 **Arguments:**
 - **a:** A big integer.
@@ -526,7 +565,8 @@ zero.
 
 **Signature:** `bigint_st *bigint_min(bigint_st *a, bigint_st *b)`
 
-**Description:** Return the least of two big integers.
+**Description:**
+Return the least of two big integers.
 
 **Arguments:**
 - **a:** A big integer.
@@ -540,7 +580,8 @@ zero.
 
 **Signature:** `bigint_st *bigint_logui(bigint_st *dest, bigint_st *x, uintmax_t base)`
 
-**Description:** Compute the logarithm of a big integer with the base specified as a standard
+**Description:**
+Compute the logarithm of a big integer with the base specified as a standard
 unsigned integer.
 
 **Arguments:**
@@ -555,7 +596,8 @@ the base is less than two, this function will fail with errno set to EDOM.
 
 **Signature:** `bigint_st *bigint_gcd(bigint_st *dest, bigint_st *a, bigint_st* b)`
 
-**Description:** Get the greatest common denominator of two big integers.
+**Description:**
+Get the greatest common denominator of two big integers.
 
 **Arguments:**
 - **a:** A big integer.
@@ -568,7 +610,8 @@ it failed.
 
 **Signature:** `bool bigint_is_power_of_2(bigint_st *x)`
 
-**Description:** Determines whether or not a big integer is a power of two.
+**Description:**
+Determines whether or not a big integer is a power of two.
 
 **Arguments:**
 - **x:** Big integer.

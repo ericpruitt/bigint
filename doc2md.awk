@@ -45,7 +45,7 @@ FILENAME ~ /\.c$/ && /^[a-z].*bigint_[a-z0-9_]+\(/ {
 
     name = substr($0, RSTART, RLENGTH - 1)
     entries[name] = sprintf( \
-        "### %s ###\n\n**Signature:** `%s`\n\n**Description:** %s", \
+        "### %s ###\n\n**Signature:** `%s`\n\n**Description:**\n%s", \
         name, $0, buffer \
     )
 
